@@ -1,9 +1,12 @@
 import express from 'express';
+import routes from './router';
+import cors from 'cors';
 
 const app = express();
 
-app.get('/users', (request, response) => {
-    response.send("(:")
-})
+app.use(cors)
+
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333)
